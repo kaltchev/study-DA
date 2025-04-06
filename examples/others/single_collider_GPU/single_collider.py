@@ -1,10 +1,19 @@
-# ==================================================================================================
+#%% ==================================================================================================
 # --- Imports
 # ==================================================================================================
 
 # Import standard library modules
 import logging
 import os
+import sys
+
+import sys
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), #"../../")))
+#
+sys.path.append("../")
+sys.path.append("../../")
+sys.path.append("../../../")
+#
 
 # Import third-party modules
 # Import user-defined modules
@@ -17,7 +26,7 @@ from study_da.utils import (
 # Set up logger
 logging.basicConfig(level=logging.INFO)
 
-# ==================================================================================================
+#%%s==================================================================================================
 # --- Script to generate a study
 # ==================================================================================================
 
@@ -34,12 +43,14 @@ config["config_mad"]["links"]["acc-models-lhc"] = (
 # Track for 10 turn just to ensure there's no issue with the collider
 config["config_simulation"]["n_turns"] = 500
 
+
+#%%
 # Change the context to cupy
 config["config_simulation"]["context"] = "cupy"
 
 # Save the collider produced after the configuration step
-config["config_collider"]["save_output_collider"] = False
-config["config_collider"]["compress"] = False
+config["config_collider"]["save_output_collider"] = True # dob False
+config["config_collider"]["compress"] = True #dob
 
 # Drop the configuration locally
 local_config_name = "local_config.yaml"
@@ -54,6 +65,8 @@ path_tree = create_single_job(
     force_overwrite=False,
 )
 
+#dob changed to true and run above
+#%%
 # Delete the configuration file (it's copied in the study folder anyway)
 os.remove(local_config_name)
 
@@ -63,7 +76,7 @@ os.remove(local_config_name)
 # ==================================================================================================
 
 # Define the variables of interest for the submission
-path_python_environment = "/afs/cern.ch/work/c/cdroin/private/study-DA/.venv"
+path_python_environment = "/afs/cern.ch/work/k/kaltchev/private/study-DA/.venv"
 path_python_environment_container = "/usr/local/DA_study/miniforge_docker"
 path_container_image = (
     "/cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cdroin/da-study-docker:757f55da"
@@ -110,3 +123,5 @@ submit(
     # keep_submit_until_done=True,
     # wait_time=5,
 )
+
+# %%
