@@ -5,7 +5,6 @@
 import sys
 # Add the path to the study_da module
 sys.path.append("../../..")s
-sys.path.append("../../../..")
 
 # Import standard library modules
 import logging
