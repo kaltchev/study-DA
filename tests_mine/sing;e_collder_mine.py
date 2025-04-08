@@ -72,8 +72,12 @@ path_configuration = "{}"
 path_root_study = "/home/kaltchev/study-DA/examples/in_docs_case_studies/simple_collider/single_job_study_hllhc16"
 
 # In case the placeholders have not been replaced, use default path
+
 if path_configuration.startswith("{}"):
     path_configuration = "config.yaml"
+
+if path_configuration.startswith("{}"):    
+    path_configuration = "config_J000.yaml"
 
 if path_root_study.startswith("{}"):
     path_root_study = "."
