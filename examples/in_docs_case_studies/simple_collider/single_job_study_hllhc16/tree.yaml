@@ -2,7 +2,7 @@ generation_1:
   generation_1:
     file: single_job_study_hllhc16/generation_1/generation_1.py
     submission_type: local
-    status: to_submit
+    status: failed
     path_run: 
       /home/kaltchev/study-DA/examples/in_docs_case_studies/simple_collider/single_job_study_hllhc16/generation_1/run.sh
     request_gpu: false
@@ -11,9 +11,9 @@ generation_1:
       file: single_job_study_hllhc16/generation_1/generation_2/generation_2.py
       request_gpu: false
       submission_type: local
-      status: to_submit
+      status: unsubmittable
 python_environment: /afs/cern.ch/work/c/cdroin/private/study-DA/.venv/bin/activate
 container_image:
 absolute_path: /home/kaltchev/study-DA/examples/in_docs_case_studies/simple_collider
-status: to_finish
+status: finished with issues
 configured: true

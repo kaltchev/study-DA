@@ -9,9 +9,10 @@ config_particles:
 config_mad:
   # Links to be made for tools and scripts
   links:
-    acc-models-lhc: ../../../../../external_dependencies/acc-models-lhc
+    acc-models-lhc: ../../../../external_dependencies/acc-models-lhc
 
   # Optics file
+    optics-toolkit: /afs/cern.ch/eng/acc-models/lhc/hl16
   optics_file: acc-models-lhc/strengths/round/opt_round_150_1500_optphases_thin.madx
 
   # Beam parameters

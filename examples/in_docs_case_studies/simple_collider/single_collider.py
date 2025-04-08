@@ -4,7 +4,8 @@
 
 import sys
 # Add the path to the study_da module
-sys.path.append("../../..")
+sys.path.append("../../..")s
+sys.path.append("../../../..")
 
 # Import standard library modules
 import logging
@@ -32,8 +33,13 @@ config, ryaml = load_template_configuration_as_dic(name_template_config)
 
 
 # Update the location of acc-models
-config["config_mad"]["links"]["acc-models-lhc"] = (
-    "../../../../../external_dependencies/acc-models-lhc"
+#config["config_mad"]["links"]["acc-models-lhc"] = (
+#    ""
+#)
+
+# Update the location of optics-toolkit
+config["config_mad"]["links"]["optics-toolkit"] = (
+    "/afs/cern.ch/eng/acc-models/lhc/hl16"
 )
 
 # Track for 10 turn just to ensure there's no issue with the collider
@@ -85,8 +91,9 @@ dic_additional_commands_per_gen = {
     "mad_collider.log __pycache__ twiss* errors fc* optics_orbit_at* \n",
     2: "",
 }
-
+#%%
 # Submit the study
+
 submit(
     path_tree=path_tree,
     path_python_environment=path_python_environment,
@@ -97,3 +104,5 @@ submit(
     keep_submit_until_done=True,
     wait_time=1,
 )
+
+# %%
